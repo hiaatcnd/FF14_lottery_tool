@@ -152,7 +152,7 @@ def search_next_step(statu, steps):
                 if avg_expectation > max_expectation:
                     max_expectation = avg_expectation
                     step_x = i
-                    step_y = i
+                    step_y = j
 
                 statu[i][j] = 0
 
@@ -163,5 +163,7 @@ def search_next_step(statu, steps):
 if __name__ == '__main__':
     statu = [[0 for j in range(3)] for i in range(3)]
     search_next_step(statu, 0)
+    embed()
+    print("generate {} status".format(len(dp)))
     with open("data.json", "w") as f:
         json.dump(dp, f)
