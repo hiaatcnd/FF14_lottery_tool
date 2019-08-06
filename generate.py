@@ -1,7 +1,9 @@
+#!/usr/bin python3
+
 import copy
 import itertools
 import json
-from IPython import embed
+# from IPython import embed
 
 lines = (((0, 0), (0, 1), (0, 2)), ((1, 0), (1, 1), (1, 2)),
          ((2, 0), (2, 1), (2, 2)), ((0, 0), (1, 0), (2, 0)),
@@ -163,7 +165,6 @@ def search_next_step(statu, steps):
 if __name__ == '__main__':
     statu = [[0 for j in range(3)] for i in range(3)]
     search_next_step(statu, 0)
-    embed()
     print("generate {} status".format(len(dp)))
     with open("data.json", "w") as f:
         json.dump(dp, f)

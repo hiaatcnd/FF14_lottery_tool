@@ -1,7 +1,9 @@
+#!/usr/bin python3
+
 import json
 from generate import get_id, cal_max_expectation
 import os
-from IPython import embed
+# from IPython import embed
 
 if __name__ == "__main__":
     if not os.path.exists("data.json"):
@@ -11,7 +13,6 @@ if __name__ == "__main__":
     with open("data.json", "r") as f:
         dp = json.load(f)
 
-
     statu = [[0 for j in range(3)] for i in range(3)]
     steps = int(input("Please enter the number of numbers you have opened: "))
     if steps > 0:
@@ -20,16 +21,17 @@ if __name__ == "__main__":
     for i in range(steps):
         x, y, num = map(int, input("Number {}: ".format(i + 1)).split())
         statu[x - 1][y - 1] = num
-    
-    while(steps < 3):
+
+    while (steps < 3):
         statu_id = str(get_id(statu))
         print(statu_id)
-        assert(statu_id in dp)
+        assert (statu_id in dp)
         exp, x, y = dp[statu_id]
-        print("Choose ({}, {}), the expectation of coins is: {:.2f}".format(x + 1, y + 1, exp))
+        print("Choose ({}, {}), the expectation of coins is: {:.2f}".format(
+            x + 1, y + 1, exp))
         num = int(input("The number you see is: "))
         statu[x][y] = num
         print(statu)
         steps += 1
 
-    cal_max_expectation(statu, output_flag = True)
+    cal_max_expectation(statu, output_flag=True)
