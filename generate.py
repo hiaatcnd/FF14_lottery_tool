@@ -131,7 +131,7 @@ def search_next_step(statu, steps):
     if statu_id in dp:
         return dp[statu_id][0]
 
-    if steps >= 3:
+    if steps >= 4:
         tmp = cal_max_expectation(statu)
         dp[statu_id] = tmp
         return tmp[0]

@@ -14,7 +14,7 @@ if __name__ == "__main__":
         dp = json.load(f)
 
     statu = [[0 for j in range(3)] for i in range(3)]
-    steps = int(input("Please enter the number of numbers you have opened: "))
+    steps = int(input("Please enter the number of numbers that have opened: "))
     if steps > 0:
         print("Enter the numbers that have opend one by one in this format:")
         print("3 1 9 means that the number in column 1 of row 3 is 9.")
@@ -22,7 +22,7 @@ if __name__ == "__main__":
         x, y, num = map(int, input("Number {}: ".format(i + 1)).split())
         statu[x - 1][y - 1] = num
 
-    while (steps < 3):
+    while (steps < 4):
         statu_id = str(get_id(statu))
         print(statu_id)
         assert (statu_id in dp)
