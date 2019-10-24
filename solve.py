@@ -35,3 +35,5 @@ if __name__ == "__main__":
         steps += 1
 
     cal_max_expectation(statu, output_flag=True)
+
+    input("Enter to end the program.")
